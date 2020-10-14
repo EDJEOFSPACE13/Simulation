@@ -1,25 +1,25 @@
-var cycles = prompt('CYCLES-RECOMENDED_MAX=150:', '150')
-var lifespan = prompt('LIFE_SPAN-RECOMENDED_MAX=1000:', '1000')
+var cycles = 300
+var lifespan = 1000
 var lastgen
 map=[
-	[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,'Cycles',0,'pop','?'],
-	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj1',0,'obj17','?'],
-	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj2',0,'obj18','?'],
-	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj3',0,'obj19','?'],
-	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj4','?','obj20','?'],
-	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj5','?','obj21','?'],
-	[2,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,2,'obj6','?','obj22','?'],
-	[2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,'obj7','?','obj23','?'],
-	[2,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,2,'obj8','?','obj24','?'],
-	[2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,'obj9','?','obj25','?'],
-	[2,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,2,'obj10','?','obj26','?'],
-	[2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,'obj11','?','obj27','?'],
-	[2,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj12','?','obj28','?'],
-	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj13','?','obj29','?'],
-	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj14','?','obj10','?'],
-	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj15','?','obj31','?'],
-	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj16','?','obj32','?'],
-	[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+	[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,'Cycles',0,'pop','?'],
+	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj1',0,'obj17','?'],
+	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj2',0,'obj18','?'],
+	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj3',0,'obj19','?'],
+	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj4','?','obj20','?'],
+	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj5','?','obj21','?'],
+	[2,0,1,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0,0,0,1,0,1,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,0,2,'obj6','?','obj22','?'],
+	[2,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,2,'obj7','?','obj23','?'],
+	[2,0,1,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,2,'obj8','?','obj24','?'],
+	[2,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,2,'obj9','?','obj25','?'],
+	[2,0,1,0,1,0,1,0,1,0,0,0,0,0,1,0,1,0,1,0,0,0,1,0,1,0,1,0,0,0,1,0,1,0,1,0,0,0,0,0,0,2,'obj10','?','obj26','?'],
+	[2,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,2,'obj11','?','obj27','?'],
+	[2,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj12','?','obj28','?'],
+	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj13','?','obj29','?'],
+	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj14','?','obj10','?'],
+	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj15','?','obj31','?'],
+	[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,'obj16','?','obj32','?'],
+	[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
 ]
 
 for(i=1;i<2;i++){
@@ -41,6 +41,21 @@ var y4 =Math.round((Math.random(0)*15)+1)
 var il1 =Math.round(Math.random(0)*50)
 var il2 =Math.round(Math.random(0)*50)
 var il3 =Math.round(Math.random(0)*50)
+function name(){
+	fam=[]
+	array =['a','e','i','o','u','y']
+	array2 =['b','r','t','h','f','d','m','s','n','v','p','j','h','l']
+	rnd = Math.round(Math.random(0)*13)
+	fam.push(array2[rnd])
+	rnd2 = Math.round(Math.random(0)*5)
+	fam.push(array[rnd2])
+	nd = Math.round(Math.random(0)*13)
+	fam.push(array2[rnd])
+	rnd2 = Math.round(Math.random(0)*5)
+	fam.push(array[rnd2])
+	console.log(fam)
+	return fam
+}
 for (var i = 0; i < cycles; ++i) {
     this["o"+i] ={
 		x:this["x"+i],
@@ -48,7 +63,12 @@ for (var i = 0; i < cycles; ++i) {
 		spawnx:this["x"+i],
 		spawny:this["y"+i],
 		ih:100,
+		age:30,
+		repRate:Math.round(Math.random(0)*4),
+		famName:name(),
+		accRate:Math.round(Math.random(0)*30),
 		obj:0,
+		speed:Math.round(Math.random(0)*100),
 		health:100,
 		dead:false,
 		life:this["il"+i],
@@ -56,8 +76,12 @@ for (var i = 0; i < cycles; ++i) {
 		deathRate:Math.round(Math.random(0)*20)
 		
 }
+	pers=this["o"+i]
+	pers.fitness = ((pers.speed+pers.repRate+pers.accRate)/3)
+	pers.irep=pers.repRate
+	pers.ispeed=pers.speed
+	pers.iaccR=pers.accRate
 }
-
 //Functions=================
 function pickUp(x,y,pers){
 	object = map[y][x]
@@ -70,10 +94,10 @@ function mutation(pers){
 	type2=Math.round((Math.random(0)*15)+1);
 	type3=Math.round((Math.random(0)*15)+1);
 	type4=Math.round(Math.random(0)*150);
-	if(type==1){pers.life=type1;pers.il=type1}
+	if(type==1){pers.accRate=type1;pers.iaccR=type1}
 	if(type==2){pers.x=type2;pers.spawnx=type2}
 	if(type==3){pers.y=type3;pers.spwany=type3}
-	if(type==4){pers.health=type4;pers.ih=type4}
+	if(type==4){pers.speed=type4;pers.ispeed=type4}
 }
 function dupe(x,y,pers){
 	  pop +=1
@@ -89,6 +113,10 @@ function dupe(x,y,pers){
 		spawny:pers.spwany,
 		il:pers.il,
 		x:16,
+		name:pers.name,
+		repRate:pers.irep,
+		speed:pers2.ispeed,
+		accRate:pers.iaccR,
 		y:16,
 		obj:0,
 		ih:pers.ih,
@@ -96,8 +124,13 @@ function dupe(x,y,pers){
 		dead:false,
 		life:pers.il,
 		deathRate:pers2.deathRate
+		
 }
-
+  persn=this["o"+i]
+	persn.fitness = ((persn.speed+persn.repRate+persn.accRate)/3)
+	persn.irep=persn.repRate
+	persn.ispeed=persn.speed
+	persn.iaccR=persn.accRate
     pers.obj-=cost
 		fiftyfity= Math.round(Math.random(0)*1)
 		if(fiftyfity==1){
@@ -105,6 +138,7 @@ function dupe(x,y,pers){
 		}
 }
 function move(x,y,pers,dir){
+	pers.age+=1
 	rndDir=Math.round(Math.random(0)*4)
 	pers.obj-=0.1
 	if(rndDir==1){dir='l';pers.y-=1;if(map[pers.y][pers.x]==1){pickUp(x,y,pers)}if(map[pers.y][pers.x]=='#' && pers.obj>cost){dupe(x,y,pers)}if (map[pers.y][pers.x]==2){
@@ -146,46 +180,47 @@ function move(x,y,pers,dir){
 }
 
 for(o=0;o<cycles;o++){
+  console.clear()
   console.table(map)
-	map[0][21]=pop
+	map[0][45]=pop
 		for(i=1;i<people;i++){
 			person=this["o"+i]
 			if(person.health<0){pop-=1}
 			if(person.deathRate==13){person.dead=true}
 			if(person.health<0){person.dead=true;}
 			if(i<=16){
-			map[i][19]=person.health
+			map[i][43]=person.health
 			}else if(i>=17&&i<=32){
 			c=i-16
-			map[c][21]=person.health
+			map[c][45]=person.health
 			}else if(i>=33&&i<49){
 			c=i-31
-			map[c][19]=person.health
-			map[c][18]='obj'+i
+			map[c][43]=person.health
+			map[c][42]='obj'+i
 			}else if(i>=50&&i<66){
 			c=i-48
-			map[c][21]=person.health
-			map[c][20]='obj'+i
+			map[c][45]=person.health
+			map[c][44]='obj'+i
 			}else if(i>=67&&i<83){
 			c=i-65
-			map[c][19]=person.health
-			map[c][18]='obj'+i
+			map[c][43]=person.health
+			map[c][42]='obj'+i
 			}else if(i>=84&&i<100){
 			c=i-82
-			map[c][21]=person.health
-			map[c][20]='obj'+i
+			map[c][45]=person.health
+			map[c][44]='obj'+i
 			}else if(i>=101&&i<117){
 			c=i-99
-			map[c][19]=person.health
-			map[c][18]='obj'+i
+			map[c][43]=person.health
+			map[c][42]='obj'+i
 			}else if(i>=118&&i<134){
 			c=i-116
-			map[c][21]=person.health
-			map[c][20]='obj'+i
+			map[c][45]=person.health
+			map[c][44]='obj'+i
 			}else if(i>=135&&i<151){
 			c=i-133
-			map[c][19]=person.health
-			map[c][18]='obj'+i
+			map[c][43]=person.health
+			map[c][42]='obj'+i
 			}
 			if(person.dead==false){
 			move(person.x,person.y,person,'r');
@@ -202,3 +237,5 @@ for(o=0;o<cycles;o++){
 			console.table(this["o"+c])
 		}
 	}
+	genF()
+	console.log("done")
